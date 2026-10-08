@@ -1,0 +1,36 @@
+type Employee {
+    id: ID!
+    name: String!
+    email: String!
+    phone: String!
+    department: String!
+    salary: Float!
+    joiningDate: String!
+    status: String!
+}
+
+input EmployeeInput {
+    name: String!
+    email: String!
+    phone: String!
+    department: String!
+    salary: Float!
+    joiningDate: String!
+    status: String!
+}
+
+type DeleteResponse {
+    success: Boolean!
+    message: String!
+}
+
+type Query {
+    employees: [Employee!]!
+    employee(id: ID!): Employee
+}
+
+type Mutation {
+    createEmployee(input: EmployeeInput!): Employee!
+    updateEmployee(id: ID!, input: EmployeeInput!): Employee!
+    deleteEmployee(id: ID!): DeleteResponse!
+}
